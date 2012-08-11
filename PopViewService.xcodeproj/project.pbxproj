@@ -1,0 +1,315 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0630A04315C5308400EB3300 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0630A04215C5308400EB3300 /* UIKit.framework */; };
+		0630A04515C5308400EB3300 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0630A04415C5308400EB3300 /* Foundation.framework */; };
+		0630A04715C5308400EB3300 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0630A04615C5308400EB3300 /* CoreGraphics.framework */; };
+		0630A04D15C5308400EB3300 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0630A04B15C5308400EB3300 /* InfoPlist.strings */; };
+		0630A04F15C5308500EB3300 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630A04E15C5308500EB3300 /* main.m */; };
+		0630A05315C5308500EB3300 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630A05215C5308500EB3300 /* AppDelegate.m */; };
+		0630A05615C5308500EB3300 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630A05515C5308500EB3300 /* ViewController.m */; };
+		0630A05915C5308500EB3300 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0630A05715C5308500EB3300 /* ViewController.xib */; };
+		0630A06115C5309000EB3300 /* CSPopViewService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630A06015C5309000EB3300 /* CSPopViewService.m */; };
+		0630A06415C5309A00EB3300 /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630A06315C5309A00EB3300 /* CMPopTipView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0630A03E15C5308400EB3300 /* PopViewService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopViewService.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0630A04215C5308400EB3300 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0630A04415C5308400EB3300 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0630A04615C5308400EB3300 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0630A04A15C5308400EB3300 /* PopViewService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PopViewService-Info.plist"; sourceTree = "<group>"; };
+		0630A04C15C5308400EB3300 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0630A04E15C5308500EB3300 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0630A05015C5308500EB3300 /* PopViewService-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PopViewService-Prefix.pch"; sourceTree = "<group>"; };
+		0630A05115C5308500EB3300 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0630A05215C5308500EB3300 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0630A05415C5308500EB3300 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0630A05515C5308500EB3300 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0630A05815C5308500EB3300 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		0630A05F15C5309000EB3300 /* CSPopViewService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSPopViewService.h; path = "PopViewService/Pop View Service/CSPopViewService.h"; sourceTree = "<group>"; };
+		0630A06015C5309000EB3300 /* CSPopViewService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSPopViewService.m; path = "PopViewService/Pop View Service/CSPopViewService.m"; sourceTree = "<group>"; };
+		0630A06215C5309A00EB3300 /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMPopTipView.h; path = "PopViewService/Pop View Service/CMPopTipView.h"; sourceTree = "<group>"; };
+		0630A06315C5309A00EB3300 /* CMPopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMPopTipView.m; path = "PopViewService/Pop View Service/CMPopTipView.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0630A03B15C5308400EB3300 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0630A04315C5308400EB3300 /* UIKit.framework in Frameworks */,
+				0630A04515C5308400EB3300 /* Foundation.framework in Frameworks */,
+				0630A04715C5308400EB3300 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0630A03315C5308400EB3300 = {
+			isa = PBXGroup;
+			children = (
+				06B2405F15D6CD3B000693E6 /* Pop View Service */,
+				0630A04815C5308400EB3300 /* PopViewService */,
+				0630A04115C5308400EB3300 /* Frameworks */,
+				0630A03F15C5308400EB3300 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0630A03F15C5308400EB3300 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0630A03E15C5308400EB3300 /* PopViewService.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0630A04115C5308400EB3300 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0630A04215C5308400EB3300 /* UIKit.framework */,
+				0630A04415C5308400EB3300 /* Foundation.framework */,
+				0630A04615C5308400EB3300 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0630A04815C5308400EB3300 /* PopViewService */ = {
+			isa = PBXGroup;
+			children = (
+				0630A05115C5308500EB3300 /* AppDelegate.h */,
+				0630A05215C5308500EB3300 /* AppDelegate.m */,
+				0630A05415C5308500EB3300 /* ViewController.h */,
+				0630A05515C5308500EB3300 /* ViewController.m */,
+				0630A05715C5308500EB3300 /* ViewController.xib */,
+				0630A04915C5308400EB3300 /* Supporting Files */,
+			);
+			path = PopViewService;
+			sourceTree = "<group>";
+		};
+		0630A04915C5308400EB3300 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0630A04A15C5308400EB3300 /* PopViewService-Info.plist */,
+				0630A04B15C5308400EB3300 /* InfoPlist.strings */,
+				0630A04E15C5308500EB3300 /* main.m */,
+				0630A05015C5308500EB3300 /* PopViewService-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		06B2405F15D6CD3B000693E6 /* Pop View Service */ = {
+			isa = PBXGroup;
+			children = (
+				0630A05F15C5309000EB3300 /* CSPopViewService.h */,
+				0630A06015C5309000EB3300 /* CSPopViewService.m */,
+				06B2406015D6CD48000693E6 /* External */,
+			);
+			name = "Pop View Service";
+			sourceTree = "<group>";
+		};
+		06B2406015D6CD48000693E6 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				0630A06215C5309A00EB3300 /* CMPopTipView.h */,
+				0630A06315C5309A00EB3300 /* CMPopTipView.m */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0630A03D15C5308400EB3300 /* PopViewService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0630A05C15C5308500EB3300 /* Build configuration list for PBXNativeTarget "PopViewService" */;
+			buildPhases = (
+				0630A03A15C5308400EB3300 /* Sources */,
+				0630A03B15C5308400EB3300 /* Frameworks */,
+				0630A03C15C5308400EB3300 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PopViewService;
+			productName = PopViewService;
+			productReference = 0630A03E15C5308400EB3300 /* PopViewService.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0630A03515C5308400EB3300 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = Oramind;
+			};
+			buildConfigurationList = 0630A03815C5308400EB3300 /* Build configuration list for PBXProject "PopViewService" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0630A03315C5308400EB3300;
+			productRefGroup = 0630A03F15C5308400EB3300 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0630A03D15C5308400EB3300 /* PopViewService */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0630A03C15C5308400EB3300 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0630A04D15C5308400EB3300 /* InfoPlist.strings in Resources */,
+				0630A05915C5308500EB3300 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0630A03A15C5308400EB3300 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0630A04F15C5308500EB3300 /* main.m in Sources */,
+				0630A05315C5308500EB3300 /* AppDelegate.m in Sources */,
+				0630A05615C5308500EB3300 /* ViewController.m in Sources */,
+				0630A06115C5309000EB3300 /* CSPopViewService.m in Sources */,
+				0630A06415C5309A00EB3300 /* CMPopTipView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0630A04B15C5308400EB3300 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0630A04C15C5308400EB3300 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0630A05715C5308500EB3300 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0630A05815C5308500EB3300 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0630A05A15C5308500EB3300 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0630A05B15C5308500EB3300 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0630A05D15C5308500EB3300 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PopViewService/PopViewService-Prefix.pch";
+				INFOPLIST_FILE = "PopViewService/PopViewService-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0630A05E15C5308500EB3300 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PopViewService/PopViewService-Prefix.pch";
+				INFOPLIST_FILE = "PopViewService/PopViewService-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0630A03815C5308400EB3300 /* Build configuration list for PBXProject "PopViewService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0630A05A15C5308500EB3300 /* Debug */,
+				0630A05B15C5308500EB3300 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0630A05C15C5308500EB3300 /* Build configuration list for PBXNativeTarget "PopViewService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0630A05D15C5308500EB3300 /* Debug */,
+				0630A05E15C5308500EB3300 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0630A03515C5308400EB3300 /* Project object */;
+}
