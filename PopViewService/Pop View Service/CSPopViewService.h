@@ -1,6 +1,3 @@
-//
-//  SFPopViewService.h
-//
 //  Created by Christos Sotiriou on 9/28/11.
 //  Copyright 2011 Oramind.
 //
@@ -25,22 +22,39 @@
 #import <Foundation/Foundation.h>
 #import "CMPopTipView.h"
 
-@interface CSPopViewService : NSObject <CMPopTipViewDelegate>{
-	NSMutableArray *popViews;
-	UIColor *currentBackgroundColor;
-	UIColor *currentTextColor;
-	
-	BOOL autoDismiss;
-	NSTimeInterval autoDismissTime;
-}
-@property (nonatomic, strong) NSMutableArray *popViews;
-@property (nonatomic, strong) UIColor *currentBackgroundColor;
-@property (nonatomic, strong) UIColor *currentTextColor;
+@interface CSPopViewService : NSObject <CMPopTipViewDelegate>
 @property (nonatomic) BOOL autoDismiss;
 @property (nonatomic) NSTimeInterval autoDismissTime;
 
-- (void)presentPopViewWithMessage:(NSString *)message pointingAtView:(UIView *)targetView inView:(UIView *)containerView animated:(BOOL)animated dismissAllOtherViews:(BOOL)soloPresent withDelay:(NSTimeInterval)delay;
-- (void)presentPopViewWithMessage:(NSString *)message pointingAtBarButtonItem:(UIBarButtonItem *)barButtonItem animated:(BOOL)animated dismissAllOtherViews:(BOOL)soloPresent withDelay:(NSTimeInterval)delay;
+
+
+/**
+ Presents the view after a delay
+ @param view the popTipView to display
+ @param delay after how many seconds will it be presented?
+ @param barButtonItem the bar button item to point the view at
+ @param dismissOther dismiss other views while presenting this one?
+ */
+- (void) presentPopView:(CMPopTipView *)view afterDelay:(NSTimeInterval)delay pointingAtBarButtonItem:(UIBarButtonItem *)barButtonItem dismissOtherManagedPopViews:(BOOL)dismissOther;
+
+
+/**
+ Presents the CMPopTipView after a delay
+ @param view view the popTipView to display
+ @param delay delay after how many seconds will it be presented
+ @param viewThatIsBeingPointerAt the view to point the popTipView at
+ @param containerView the view that will contain the CMPopTipView
+ @param dismissOther dismiss other views while presenting this one?
+ */
+- (void) presentPopView:(CMPopTipView *)view afterDelay:(NSTimeInterval)delay pointingAtView:(UIView *)viewThatIsBeingPointerAt containerView:(UIView *)containerView dismissOtherManagedPopViews:(BOOL)dismissOther;
+
+
+
+/**
+ Stops all background timers, which means that there will be presented no views after a while, if they are set
+ to be presented
+ */
+- (void)stopAllTimers;
 
 - (void)dismissAllViewsAnimated:(BOOL)animated;
 - (void)dismissPopView:(CMPopTipView *)popTipView animated:(BOOL)animated;

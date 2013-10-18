@@ -1,6 +1,3 @@
-//
-//  SFPopViewService.m
-//
 //  Created by Christos Sotiriou on 9/28/11.
 //  Copyright 2011 Oramind.
 //
@@ -24,75 +21,74 @@
 
 #import "CSPopViewService.h"
 #import "CMPopTipView.h"
+#import "CSWatchDogPopTip.h"
 
+@interface CSPopViewService () <CSWatchDogPopTipDelegate>
+@property (nonatomic, strong) NSMutableArray *watchdogsArray;
+@property (nonatomic, strong) NSMutableArray *visiblePopViews;
+@property (nonatomic, strong) CSWatchDogPopTip *wd;
+@end
 
 @implementation CSPopViewService
-@synthesize popViews;
-@synthesize currentBackgroundColor;
-@synthesize currentTextColor;
-@synthesize autoDismiss;
-@synthesize autoDismissTime;
 
 - (id)init
 {
     self = [super init];
     if (self) {
-		self.popViews = [NSMutableArray array];
-		self.currentTextColor = [UIColor blackColor];
-		self.currentBackgroundColor = [UIColor yellowColor];
+		self.visiblePopViews = [NSMutableArray array];
 		self.autoDismiss = NO;
 		self.autoDismissTime = 0;
+		self.watchdogsArray = [NSMutableArray array];
 	}
     
     return self;
 }
 
-- (void)presentPopViewWithMessage:(NSString *)message pointingAtView:(UIView *)targetView inView:(UIView *)containerView animated:(BOOL)animated dismissAllOtherViews:(BOOL)soloPresent withDelay:(NSTimeInterval)delay
+- (void) presentPopView:(CMPopTipView *)view afterDelay:(NSTimeInterval)delay pointingAtBarButtonItem:(UIBarButtonItem *)barButtonItem dismissOtherManagedPopViews:(BOOL)dismissOther
 {
-	dispatch_time_t delayQueue = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * delay);
-	dispatch_after(delayQueue, dispatch_get_main_queue(), ^(void){
-		if (soloPresent) {
-			[self dismissAllViewsAnimated:animated]; 
-		}
-		CMPopTipView *popTipVIew = [[CMPopTipView alloc] initWithMessage:message];
-		popTipVIew.backgroundColor = self.currentBackgroundColor;
-		popTipVIew.textColor = self.currentTextColor;
-		[popTipVIew presentPointingAtView:targetView inView:containerView animated:YES];
-		[self.popViews addObject:popTipVIew];
-		popTipVIew.delegate = self;
-		if (self.autoDismiss) {
-			dispatch_time_t dismissDelay = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * self.autoDismissTime);
-			dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, dismissDelay * NSEC_PER_SEC);
-			dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-				[self dismissPopView:popTipVIew animated:YES];
-			});
-		}
-	});
+	__block __weak CSPopViewService *weakSelf = self;
+	
+	CSWatchDogPopTip *newWatchDog = [[CSWatchDogPopTip alloc] initWithDelegate:self associatedView:view andBlock:^(CMPopTipView *view) {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[view presentPointingAtBarButtonItem:barButtonItem animated:YES];
+			if (dismissOther) {
+				[weakSelf dismissAllViewsAnimated:YES];
+			}
+			[weakSelf.visiblePopViews addObject:view]; // add it again, since it will be removed because we dismissed all views before
+
+		});
+	}];
+	newWatchDog.timeInterval = delay;
+	
+	[self.watchdogsArray addObject:newWatchDog];
+	[newWatchDog fire];
 }
 
-- (void)presentPopViewWithMessage:(NSString *)message pointingAtBarButtonItem:(UIBarButtonItem *)barButtonItem animated:(BOOL)animated dismissAllOtherViews:(BOOL)soloPresent withDelay:(NSTimeInterval)delay
+- (void) presentPopView:(CMPopTipView *)view afterDelay:(NSTimeInterval)delay pointingAtView:(UIView *)viewThatIsBeingPointerAt containerView:(UIView *)containerView dismissOtherManagedPopViews:(BOOL)dismissOther
 {
-	dispatch_time_t delayQueue = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * delay);
-	dispatch_after(delayQueue, dispatch_get_main_queue(), ^(void){
-		if (soloPresent) {
-			[self dismissAllViewsAnimated:animated]; 
-		}
-		CMPopTipView *popTipView = [[CMPopTipView alloc] initWithMessage:message];
-		popTipView.backgroundColor = self.currentBackgroundColor;
-		popTipView.textColor = self.currentTextColor;
-		[popTipView presentPointingAtBarButtonItem:barButtonItem animated:animated];
-		[self.popViews addObject:popTipView];
-		popTipView.delegate = self;
-		
-		if (self.autoDismiss) {
-			dispatch_time_t dismissDelay = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * self.autoDismissTime);
-			dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, dismissDelay * NSEC_PER_SEC);
-			dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-				[self dismissPopView:popTipView animated:YES];
-			});
-		}
-	});
+	__block __weak CSPopViewService *weakSelf = self;
+	
+	CSWatchDogPopTip *newWatchDog = [[CSWatchDogPopTip alloc] initWithDelegate:self associatedView:view andBlock:^(CMPopTipView *view) {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[view presentPointingAtView:viewThatIsBeingPointerAt inView:containerView animated:YES];
+			if (dismissOther) {
+				[weakSelf dismissAllViewsAnimated:YES];
+			}
+			[weakSelf.visiblePopViews addObject:view]; // add it again, since it will be removed because we dismissed all views before
+			
+		});
+	}];
+	newWatchDog.timeInterval = delay;
+	
+	[self.watchdogsArray addObject:newWatchDog];
+	[newWatchDog fire];
 }
+
+- (void)watchDogTimeHasPassed:(CSWatchDogPopTip *)dog withView:(CMPopTipView *)view
+{
+	[self.watchdogsArray removeObject:dog];
+}
+
 
 - (void)enableAutoDismissAfterTime:(NSTimeInterval)dismissAfterTime
 {
@@ -107,23 +103,29 @@
 
 - (void)popTipViewWasDismissedByUser:(CMPopTipView *)popTipView
 {
-	[self.popViews removeObject:popTipView];
+	[self.visiblePopViews removeObject:popTipView];
 }
 
 - (void)dismissPopView:(CMPopTipView *)popTipView animated:(BOOL)animated
 {
 	[popTipView dismissAnimated:animated];
-	if ([self.popViews containsObject:popTipView]) {
-		[self.popViews removeObject:popTipView];
+	if ([self.visiblePopViews containsObject:popTipView]) {
+		[self.visiblePopViews removeObject:popTipView];
 	}
+}
+
+- (void)stopAllTimers
+{
+	[self.watchdogsArray makeObjectsPerformSelector:@selector(invalidate)];
+	[self.watchdogsArray removeAllObjects];
 }
 
 - (void)dismissAllViewsAnimated:(BOOL)animated
 {
-	for (CMPopTipView *popView in self.popViews) {
+	for (CMPopTipView *popView in self.visiblePopViews) {
 		[popView dismissAnimated:animated];
 	}
-	[self.popViews removeAllObjects];
+	[self.visiblePopViews removeAllObjects];
 }
 
 

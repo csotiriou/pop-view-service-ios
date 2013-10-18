@@ -19,11 +19,29 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
+#import "CSWatchDogPopTip.h"
 
-@interface ViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *barItem1;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *barItem2;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *barItem3;
+@interface CSWatchDogPopTip ()
+@property (nonatomic, copy) void (^completionBlock)(CMPopTipView *view);
+@end
 
+@implementation CSWatchDogPopTip
+
+- (id)initWithDelegate:(id<CSWatchDogDelegate>)delegate associatedView:(CMPopTipView *)view andBlock:(void (^)(CMPopTipView *))completionBlock
+{
+	if (self = [super init]) {
+		self.delegate = delegate;
+		self.completionBlock = completionBlock;
+		self.associatedView = view;
+	}
+	return self;
+}
+
+- (void)update
+{
+	if ([self.delegate respondsToSelector:@selector(watchDogTimeHasPassed:withView:)]) {
+		self.completionBlock(self.associatedView);
+		[((id<CSWatchDogPopTipDelegate>)self.delegate) watchDogTimeHasPassed:self withView:self.associatedView];
+	}
+}
 @end

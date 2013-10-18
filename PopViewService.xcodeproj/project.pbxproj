@@ -16,8 +16,10 @@
 		0630A05615C5308500EB3300 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630A05515C5308500EB3300 /* ViewController.m */; };
 		0630A05915C5308500EB3300 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0630A05715C5308500EB3300 /* ViewController.xib */; };
 		0630A06115C5309000EB3300 /* CSPopViewService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630A06015C5309000EB3300 /* CSPopViewService.m */; };
-		0630A06415C5309A00EB3300 /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630A06315C5309A00EB3300 /* CMPopTipView.m */; };
-		06482DE01811D64B0088DEB4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06482DDF1811D64B0088DEB4 /* Default-568h@2x.png */; };
+		0630A06415C5309A00EB3300 /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630A06315C5309A00EB3300 /* CMPopTipView.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		06482DE21811D7070088DEB4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06482DE11811D7070088DEB4 /* Default-568h@2x.png */; };
+		06482DE51811D90F0088DEB4 /* CSWatchDog.m in Sources */ = {isa = PBXBuildFile; fileRef = 06482DE41811D90F0088DEB4 /* CSWatchDog.m */; };
+		06482DE81811DB540088DEB4 /* CSWatchDogPopTip.m in Sources */ = {isa = PBXBuildFile; fileRef = 06482DE71811DB540088DEB4 /* CSWatchDogPopTip.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +40,12 @@
 		0630A06015C5309000EB3300 /* CSPopViewService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSPopViewService.m; path = "PopViewService/Pop View Service/CSPopViewService.m"; sourceTree = "<group>"; };
 		0630A06215C5309A00EB3300 /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMPopTipView.h; path = "PopViewService/Pop View Service/CMPopTipView.h"; sourceTree = "<group>"; };
 		0630A06315C5309A00EB3300 /* CMPopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMPopTipView.m; path = "PopViewService/Pop View Service/CMPopTipView.m"; sourceTree = "<group>"; };
-		06482DDF1811D64B0088DEB4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		06482DE11811D7070088DEB4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		06482DE31811D90F0088DEB4 /* CSWatchDog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSWatchDog.h; sourceTree = "<group>"; };
+		06482DE41811D90F0088DEB4 /* CSWatchDog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSWatchDog.m; sourceTree = "<group>"; };
+		06482DE61811DB540088DEB4 /* CSWatchDogPopTip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSWatchDogPopTip.h; path = "PopViewService/Pop View Service/CSWatchDogPopTip.h"; sourceTree = "<group>"; };
+		06482DE71811DB540088DEB4 /* CSWatchDogPopTip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSWatchDogPopTip.m; path = "PopViewService/Pop View Service/CSWatchDogPopTip.m"; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +65,7 @@
 		0630A03315C5308400EB3300 = {
 			isa = PBXGroup;
 			children = (
-				06482DDF1811D64B0088DEB4 /* Default-568h@2x.png */,
+				06482DE11811D7070088DEB4 /* Default-568h@2x.png */,
 				06B2405F15D6CD3B000693E6 /* Pop View Service */,
 				0630A04815C5308400EB3300 /* PopViewService */,
 				0630A04115C5308400EB3300 /* Frameworks */,
@@ -121,6 +128,10 @@
 		06B2406015D6CD48000693E6 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				06482DE31811D90F0088DEB4 /* CSWatchDog.h */,
+				06482DE41811D90F0088DEB4 /* CSWatchDog.m */,
+				06482DE61811DB540088DEB4 /* CSWatchDogPopTip.h */,
+				06482DE71811DB540088DEB4 /* CSWatchDogPopTip.m */,
 				0630A06215C5309A00EB3300 /* CMPopTipView.h */,
 				0630A06315C5309A00EB3300 /* CMPopTipView.m */,
 			);
@@ -191,7 +202,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06482DE51811D90F0088DEB4 /* CSWatchDog.m in Sources */,
 				0630A04F15C5308500EB3300 /* main.m in Sources */,
+				06482DE81811DB540088DEB4 /* CSWatchDogPopTip.m in Sources */,
 				0630A05315C5308500EB3300 /* AppDelegate.m in Sources */,
 				0630A05615C5308500EB3300 /* ViewController.m in Sources */,
 				0630A06115C5309000EB3300 /* CSPopViewService.m in Sources */,

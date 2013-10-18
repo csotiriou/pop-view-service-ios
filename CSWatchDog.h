@@ -18,12 +18,30 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+#import <Foundation/Foundation.h>
 
-#import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *barItem1;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *barItem2;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *barItem3;
+@class CSWatchDog;
+@protocol CSWatchDogDelegate <NSObject>
+@optional
+- (void)watchDogDidFire:(CSWatchDog *)dog;
+- (void)watchDogTimeHasPassed:(CSWatchDog *)dog;
+@end
 
+
+/**
+ Wathdog class. Helper for cancelling things or calling selectors after a certain amount of time.
+ */
+@interface CSWatchDog : NSObject
+@property (nonatomic) NSTimeInterval timeInterval;
+@property (nonatomic, weak) id<CSWatchDogDelegate> delegate;
+
+@property (nonatomic, readonly) BOOL hasCompleted;
+@property (nonatomic, readonly) BOOL isInvalidated;
+
+- (void)fire;
+
+- (id)initWithTimeInterval:(NSTimeInterval)interval;
+- (void)update;
+- (void)invalidate;
 @end
